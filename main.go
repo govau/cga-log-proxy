@@ -283,6 +283,7 @@ func (p *proxy) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 			searchBits = append(searchBits, string(bb))
+			log.Println(string(bb))
 		}
 		if len(searchBits)%2 != 0 {
 			http.Error(w, "don't understand query", http.StatusBadRequest)
