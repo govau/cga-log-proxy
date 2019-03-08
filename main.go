@@ -254,7 +254,7 @@ func (p *proxy) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 				if p.AlwaysFilter != "" {
 					extraFilters = append(extraFilters, p.AlwaysFilter)
 				}
-				for _, f := range r.Header["X-ElasticSearch-Filters"] {
+				for _, f := range r.Header["X-Elasticsearch-Filters"] {
 					b, err := base64.StdEncoding.DecodeString(f)
 					if err != nil {
 						http.Error(w, err.Error(), http.StatusBadRequest)
